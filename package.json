@@ -8,8 +8,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev:server": "nodemon --watch server server/index.ts",
-    "start:server": "ts-node server/index.ts"
   },
   "private": true,
   "dependencies": {
