@@ -1,0 +1,16 @@
+
+<div container *ngIf="isVisible" [@fadeOut]></div>
+<div swiper *ngIf="isVisible">
+      <i close-btn class="iconfont icon-close" (click)="hide()"></i>
+      <button (click)="pre()" [class.hidden]="curPage === 0" ><i class="iconfont icon-left"></i></button>
+      <app-home-swiper-page0 *ngIf="curPage === 0"></app-home-swiper-page0>
+      <app-home-swiper-page1 *ngIf="curPage === 1"></app-home-swiper-page1>
+      <app-home-swiper-page2 *ngIf="curPage === 2"></app-home-swiper-page2>
+      <app-home-swiper-page3 *ngIf="curPage === 3"></app-home-swiper-page3>
+      <app-home-swiper-page4 *ngIf="curPage === 4"></app-home-swiper-page4>
+      <button (click)="next()" [class.hidden]="curPage === total - 1"><i class="iconfont icon-right"></i></button>
+      <div control>
+        <span *ngFor="let item of rangeList" [class.active]="curPage === item"></span>
+      </div>
+</div>
+

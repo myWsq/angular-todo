@@ -1,0 +1,105 @@
+
+@keyframes moveIn {
+    0%{
+        opacity: 0;
+        transform: translate(-150%,-150%) scale(0)
+    }
+    50%{
+        opacity: 0;
+        transform: translate(-100%,-100%) scale(.5)
+    }
+    100%{
+        opacity: 1;
+        transform: translate(-50%,-50%) scale(1);
+    }
+}
+
+@keyframes fade {
+    0%{
+        background: transparent;
+    }
+    20%{
+        background: transparent;
+    }
+    100%{
+        background: rgba(0, 0, 0, .8);
+    }
+}
+
+[container]{
+    z-index: 5;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fade 0.6s ease-in-out;
+}
+
+[swiper]{
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 6;
+    align-items: center;
+    animation: moveIn 0.3s ease-in-out;
+    button{
+        width: 48px;
+        height: 48px;
+        background: rgba(255,255,255,0.05);
+        outline: none;
+        border: none;
+        padding: 0;
+        margin: 0 20px;
+        transition-duration: 0.3s;
+        i{
+            font-size: 20px;
+            color: #fff;
+        }
+        &:active{
+            background: rgba(255,255,255,0.1);
+        }
+    }
+    [close-btn]{
+        position: absolute;
+        top: -20px;
+        right: 64px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+    }
+    [control]{
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 20px;
+        span{
+            display: inline-block;
+            margin: 0 12.5px;
+            height: 9px;
+            width: 9px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            transition-duration: 0.3s;
+        }
+        span:first-child{
+            border-radius: 0;
+        }
+    }
+}
+
+.active{
+    background: #fff;
+}
+
+.hidden{
+    opacity: 0;
+    cursor: default;
+}
