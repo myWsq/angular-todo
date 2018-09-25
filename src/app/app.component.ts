@@ -1,9 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '../store';
+import { AppService, Response } from './app.service';
+import { UserSetAction } from '../store/user';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.less']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'ngTest';
+  constructor(private store: Store<AppState>, private app: AppService) {}
+  ngOnInit() {
+    /** 检查当前登陆的用户 */
+    this.app.me().subscribe((res: Response) => {
+      if (res.success) {
+        this.store.dispatch(new UserSetAction(res.data));
+       }
+    });
+  }
 }

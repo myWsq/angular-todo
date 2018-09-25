@@ -295,6 +295,10 @@
     path-to-regexp "2.2.1"
     uuid "3.3.2"
 
+"@ngrx/store@^6.1.0":
+  version "6.1.0"
+  resolved "http://registry.npm.taobao.org/@ngrx/store/download/@ngrx/store-6.1.0.tgz#5b027647a797bf027912568214b10375dd75af38"
+
 "@ngtools/webpack@6.1.5":
   version "6.1.5"
   resolved "http://registry.npm.baidu-int.com/@ngtools%2fwebpack/-/webpack-6.1.5.tgz#134639686eb4519885ed27665babdf80ce098263"
@@ -348,6 +352,10 @@
   dependencies:
     "@types/jasmine" "*"
 
+"@types/lodash@^4.14.116":
+  version "4.14.116"
+  resolved "http://registry.npm.taobao.org/@types/lodash/download/@types/lodash-4.14.116.tgz#5ccf215653e3e8c786a58390751033a9adca0eb9"
+
 "@types/marked@^0.4.1":
   version "0.4.1"
   resolved "http://registry.npm.baidu-int.com/@types%2fmarked/-/marked-0.4.1.tgz#6595701c4d0dfde9d04894d3be04b8a97a49e0d7"
@@ -367,6 +375,10 @@
 "@types/selenium-webdriver@^2.53.35", "@types/selenium-webdriver@~2.53.39":
   version "2.53.43"
   resolved "http://registry.npm.baidu-int.com/@types%2fselenium-webdriver/-/selenium-webdriver-2.53.43.tgz#2de3d718819bc20165754c4a59afb7e9833f6707"
+
+"@types/shortid@^0.0.29":
+  version "0.0.29"
+  resolved "http://registry.npm.taobao.org/@types/shortid/download/@types/shortid-0.0.29.tgz#8093ee0416a6e2bf2aa6338109114b3fbffa0e9b"
 
 "@webassemblyjs/ast@1.4.3":
   version "1.4.3"
@@ -4360,6 +4372,10 @@ nan@^2.10.0, nan@^2.9.2:
   version "2.11.0"
   resolved "http://registry.npm.baidu-int.com/nan/-/nan-2.11.0.tgz#574e360e4d954ab16966ec102c0c049fd961a099"
 
+nanoid@^1.0.7:
+  version "1.2.3"
+  resolved "http://registry.npm.taobao.org/nanoid/download/nanoid-1.2.3.tgz#b8f022193a5808f9e3112658a2c34e43b24c009a"
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "http://registry.npm.baidu-int.com/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
@@ -5837,6 +5853,12 @@ shebang-command@^1.2.0:
 shebang-regex@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.baidu-int.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
+
+shortid@^2.2.13:
+  version "2.2.13"
+  resolved "http://registry.npm.taobao.org/shortid/download/shortid-2.2.13.tgz#b2441e71c664ace458a341d343959f677910ef5b"
+  dependencies:
+    nanoid "^1.0.7"
 
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"

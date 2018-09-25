@@ -8,9 +8,10 @@ export const fadeIn = (duration: number = 100) => {
     return trigger('fadeIn', [
         transition(':enter', [
             style({
-              opacity: 0,
+              transform: 'translateX(100%)',
+              height: 0,
             }),
-            animate(duration)
+            animate(`${duration}ms ease-out`)
           ]),
     ]);
 };
@@ -22,8 +23,14 @@ export const fadeIn = (duration: number = 100) => {
 export const fadeOut = (duration: number = 100) => {
     return trigger('fadeOut', [
         transition(':leave', [
-            animate(duration, style({
+            style({
+                height: '*',
+                overflow: 'hidden',
+            }),
+            animate(`${duration}ms ease-out`, style({
                 opacity: 0,
+                height: 0,
+                transform: 'translateX(100%)',
             }))
           ]),
     ]);

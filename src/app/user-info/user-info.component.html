@@ -1,0 +1,8 @@
+<ng-container *ngIf="!user; else elseTemplate">
+  请登录
+</ng-container>
+<ng-template #elseTemplate>
+    <mat-icon>face</mat-icon>
+    <span>{{user.username}}</span>
+</ng-template>
+

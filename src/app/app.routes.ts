@@ -16,6 +16,14 @@ const routes: Routes = [
   {
     path: 'marked',
     loadChildren: './marked/marked.module'
+  },
+  {
+    path: 'login',
+    loadChildren: './login/login.module'
+  },
+  {
+    path: 'super_admin',
+    loadChildren: './super-admin/super-admin.module'
   }
 ];
 
