@@ -7,9 +7,9 @@ import { HttpClient } from '@angular/common/http';
 import { UserState, Roles } from '../store/user';
 
 /** Http请求返回的固定格式 */
-export interface Response {
+export interface Response<T = any> {
   success: boolean;
-  data ?: any;
+  data ?: T;
   error?: string;
 }
 

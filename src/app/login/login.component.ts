@@ -5,7 +5,6 @@ import { Store, select } from '@ngrx/store';
 import { AppState } from '../../store';
 import { UserSetAction, UserState } from '../../store/user';
 import { SnackBarService } from '../../components/snack-bar/snack-bar.service';
-import { Router } from '@angular/router';
 import { NavService } from '../nav/nav.service';
 
 @Component({
@@ -22,12 +21,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private auth: AppService,
-    private app: AppService,
     private store: Store<AppState>,
     private fb: FormBuilder,
     private msg: SnackBarService,
-    private router: Router,
-    private navService: NavService
     ) { }
 
   /** 提交登录表单 */
@@ -38,7 +34,6 @@ export class LoginComponent implements OnInit {
           const user = res.data;
           /** 登录成功设置 user state */
           this.store.dispatch(new UserSetAction(user));
-          this.router.navigateByUrl(this.app.getRedirectUrl(user));
         } else {
           this.msg.error(res.error);
         }
