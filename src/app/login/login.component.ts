@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AppService, Response } from '../app.service';
+import { AppService } from '../app.service';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../store';
 import { UserSetAction, UserState } from '../../store/user';
-import { SnackBarService } from '../../components/snack-bar/snack-bar.service';
-import { Router } from '@angular/router';
 import { NavService } from '../nav/nav.service';
+import { MyResponse } from '../../http-interceptors';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -21,26 +21,21 @@ export class LoginComponent implements OnInit {
   user: UserState;
 
   constructor(
-    private auth: AppService,
-    private app: AppService,
+    private appService: AppService,
     private store: Store<AppState>,
     private fb: FormBuilder,
-    private msg: SnackBarService,
-    private router: Router,
-    private navService: NavService
+    private router: Router
     ) { }
 
   /** 提交登录表单 */
   onSubmit() {
     if (this.form.valid) {
-      this.auth.auth(this.form.value.username).subscribe((res: Response) => {
+      this.appService.auth(this.form.value.username).subscribe((res: MyResponse) => {
         if (res.success) {
           const user = res.data;
           /** 登录成功设置 user state */
           this.store.dispatch(new UserSetAction(user));
-          this.router.navigateByUrl(this.app.getRedirectUrl(user));
-        } else {
-          this.msg.error(res.error);
+          this.router.navigateByUrl(this.appService.getRedirectUrl(user));
         }
       });
     }

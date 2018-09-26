@@ -6,3 +6,6 @@
     <span>{{user.username}}</span>
 </ng-template>
 
+<div *ngIf="user?.originUser" originUser>
+  源: {{user?.originUser.username}}
+</div>

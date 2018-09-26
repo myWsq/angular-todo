@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { StoreModule } from '@ngrx/store';
@@ -12,6 +12,8 @@ import { AppService } from './app.service';
 import { SnackBarModule } from '../components/snack-bar/snack-bar.module';
 import { ContainerModule } from '../components/container/container.module';
 import { MatIconModule } from '@angular/material';
+import { httpInterceptorProviders } from '../http-interceptors';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
@@ -19,7 +21,7 @@ import { MatIconModule } from '@angular/material';
     AppComponent,
     NavComponent,
     UserInfoComponent,
-
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,10 @@ import { MatIconModule } from '@angular/material';
       user: userReducer
     })
   ],
-  providers: [AppService],
+  providers: [
+    AppService,
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

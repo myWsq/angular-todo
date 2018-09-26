@@ -4,7 +4,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../store/user';
+import { User, UserState } from '../store/user';
+import { MyResponse } from '../http-interceptors';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,16 @@ export class UserService {
    * 获得全部的用户列表
    */
   getAllUser() {
-      return this.http.get<User[]>('/api/user');
+      return this.http.get<MyResponse<User[]>>('/api/user');
+  }
+
+  /**
+   * 附身到某个用户
+   * @param username 用户唯一标识
+   */
+  signTo(username: string) {
+    return this.http.put<MyResponse<UserState>>('/api/auth', {
+      username
+    });
   }
 }
