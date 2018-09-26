@@ -4,7 +4,6 @@ import { AppService } from '../app.service';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../store';
 import { UserSetAction, UserState } from '../../store/user';
-import { SnackBarService } from '../../components/snack-bar/snack-bar.service';
 import { NavService } from '../nav/nav.service';
 import { MyResponse } from '../../http-interceptors';
 
@@ -24,7 +23,6 @@ export class LoginComponent implements OnInit {
     private auth: AppService,
     private store: Store<AppState>,
     private fb: FormBuilder,
-    private msg: SnackBarService,
     ) { }
 
   /** 提交登录表单 */
@@ -35,8 +33,6 @@ export class LoginComponent implements OnInit {
           const user = res.data;
           /** 登录成功设置 user state */
           this.store.dispatch(new UserSetAction(user));
-        } else {
-          this.msg.error(res.error);
         }
       });
     }
