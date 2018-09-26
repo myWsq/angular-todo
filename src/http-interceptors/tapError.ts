@@ -24,6 +24,7 @@ export class TapErrorInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         return next.handle(req).pipe(tap(e => {
+            /** 处理特殊Request */
             if (req.headers.get(DO_NOT_TAP)) {
                 return;
             }

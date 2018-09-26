@@ -3,8 +3,9 @@
  * @file 全局公共服务
  */
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserState, Roles } from '../store/user';
+import { DO_NOT_TAP } from '../http-interceptors/flag';
 
 
 
@@ -21,9 +22,17 @@ export class AppService {
 
   /** 用户认证 */
   auth(username) {
-    return this.http.post('api/auth', {
-      username
-    });
+    const headers = new HttpHeaders();
+    // headers = headers.set(DO_NOT_TAP, 'any');
+    return this.http.post(
+      'api/auth',
+      {
+        username
+      },
+      {
+        headers
+      }
+    );
   }
 
   /** 获得当前用户登录后应该跳转到的Url */

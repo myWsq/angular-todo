@@ -5,14 +5,17 @@
  * 3. 不缓存
  * 4. 不显示全局加载框
  */
+
+const PREFIX = 'X-';
+
 /** 不进行错误跳转 */
-export const DO_NOT_CATCH = 'DO_NOT_CATCH';
+export const DO_NOT_CATCH = PREFIX + 'DO_NOT_CATCH';
 
 /** 不提示错误 */
-export const DO_NOT_TAP = 'DO_NOT_TAP';
+export const DO_NOT_TAP = PREFIX + 'DO_NOT_TAP';
 
 /** 加入缓存 */
-export const CACHE = 'CACHE';
+export const CACHE = PREFIX + 'CACHE';
 
 /** 显示加载框 */
-export const LOADING = 'LOADING';
+export const LOADING = PREFIX + 'LOADING';
