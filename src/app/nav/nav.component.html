@@ -1,0 +1,9 @@
+<nav *ngIf="visible" [@slideIn] [@slideOut]>
+  <app-container>
+    <h1>Pre It 💥</h1>
+    <div route>
+      <a *ngFor="let item of menuWithState; trackBy: trackIndex" [routerLink]="[ item.index]" [@active]="item.state">{{item.text}}</a>
+    </div>
+    <app-user-info></app-user-info>
+  </app-container>
+</nav>

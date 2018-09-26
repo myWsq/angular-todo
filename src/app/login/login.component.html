@@ -1,0 +1,12 @@
+<div container>
+  <div userInfo *ngIf="user">您目前已登录用户 <strong>{{user.username}}</strong></div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex-row">
+      <mat-form-field>
+        <input matInput placeholder="请输入用户名" [formControl]="form.get('username')">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="请输入密码" [formControl]="form.get('password')">
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">提交</button>
+  </form>
+</div>

@@ -1,0 +1,5 @@
+<div container  [@fadeIn] [@fadeOut] *ngFor="let item of msgList; trackBy: trackById">
+  <div snackBar [@slideIn]>
+    {{item.text}}
+  </div>
+</div>

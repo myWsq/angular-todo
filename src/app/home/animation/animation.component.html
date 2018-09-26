@@ -1,0 +1,7 @@
+<h1>奇怪的动画</h1>
+<button nb-button theme="primary" (click)="subscribe ? end() : start()">{{subscribe ? '停止' : '开始'}}</button>
+<div flex-container>
+  <div [@fadeIn] [@fadeOut] *ngFor="let item of displayInfo" [class]="item.class" >
+    {{item.text}}
+  </div>
+</div>
