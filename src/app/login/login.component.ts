@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AppService, Response } from '../app.service';
+import { AppService } from '../app.service';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../store';
 import { UserSetAction, UserState } from '../../store/user';
 import { SnackBarService } from '../../components/snack-bar/snack-bar.service';
 import { NavService } from '../nav/nav.service';
+import { MyResponse } from '../../http-interceptors';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
   /** 提交登录表单 */
   onSubmit() {
     if (this.form.valid) {
-      this.auth.auth(this.form.value.username).subscribe((res: Response) => {
+      this.auth.auth(this.form.value.username).subscribe((res: MyResponse) => {
         if (res.success) {
           const user = res.data;
           /** 登录成功设置 user state */

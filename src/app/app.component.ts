@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../store';
-import { AppService, Response } from './app.service';
+import { AppService } from './app.service';
 import { UserSetAction, UserState } from '../store/user';
 import { Router } from '@angular/router';
+import { MyResponse } from '../http-interceptors';
 
 @Component({
     selector: 'app-root',
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
     ) { }
     ngOnInit() {
         /** 检查当前登陆的用户 */
-        this.app.me().subscribe((res: Response) => {
+        this.app.me().subscribe((res: MyResponse) => {
             if (res.success) {
                 this.store.dispatch(new UserSetAction(res.data));
             }

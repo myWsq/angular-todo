@@ -6,12 +6,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserState, Roles } from '../store/user';
 
-/** Http请求返回的固定格式 */
-export interface Response<T = any> {
-  success: boolean;
-  data ?: T;
-  error?: string;
-}
+
 
 @Injectable({
   providedIn: 'root'
