@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ErrorComponent } from './error/error.component';
+import { IndexComponent } from './index/index.component';
 
 const devPage = 'home';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: devPage,
-    pathMatch: 'full'
+    component: IndexComponent
   },
   {
     path: 'home',
