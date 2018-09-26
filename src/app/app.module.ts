@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { StoreModule } from '@ngrx/store';
@@ -14,6 +14,8 @@ import { ContainerModule } from '../components/container/container.module';
 import { MatIconModule } from '@angular/material';
 import { httpInterceptorProviders } from '../http-interceptors';
 import { ErrorComponent } from './error/error.component';
+import { IndexComponent } from './index/index.component';
+import { MarkedPipe } from '../pipe/marked.pipe';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { ErrorComponent } from './error/error.component';
     NavComponent,
     UserInfoComponent,
     ErrorComponent,
+    IndexComponent,
+    MarkedPipe
   ],
   imports: [
     BrowserModule,
