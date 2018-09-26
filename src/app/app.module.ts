@@ -22,7 +22,6 @@ import { ErrorComponent } from './error/error.component';
     NavComponent,
     UserInfoComponent,
     ErrorComponent,
-
   ],
   imports: [
     BrowserModule,

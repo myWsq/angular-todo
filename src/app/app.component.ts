@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { AppState } from '../store';
 import { AppService } from './app.service';
-import { UserSetAction, UserState } from '../store/user';
-import { Router } from '@angular/router';
+import { UserSetAction } from '../store/user';
 import { MyResponse } from '../http-interceptors';
 
 @Component({
@@ -16,7 +15,6 @@ export class AppComponent implements OnInit {
     constructor(
         private store: Store<AppState>,
         private app: AppService,
-        private router: Router
     ) { }
     ngOnInit() {
         /** 检查当前登陆的用户 */
@@ -25,13 +23,5 @@ export class AppComponent implements OnInit {
                 this.store.dispatch(new UserSetAction(res.data));
             }
         });
-
-        /** 当前用户出现变化后自动跳转 */
-        this.store.pipe<UserState>(select('user')).subscribe(user => {
-            if (user) {
-                this.router.navigateByUrl(this.app.getRedirectUrl(user));
-            }
-        });
-
     }
 }

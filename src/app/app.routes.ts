@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ErrorComponent } from './error/error.component';
 
-const devPage = 'marked';
+const devPage = 'home';
 
 const routes: Routes = [
   {
@@ -13,10 +13,6 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: './home/home.module'
-  },
-  {
-    path: 'marked',
-    loadChildren: './marked/marked.module'
   },
   {
     path: 'login',

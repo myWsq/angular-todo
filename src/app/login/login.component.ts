@@ -6,6 +6,7 @@ import { AppState } from '../../store';
 import { UserSetAction, UserState } from '../../store/user';
 import { NavService } from '../nav/nav.service';
 import { MyResponse } from '../../http-interceptors';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,19 +21,21 @@ export class LoginComponent implements OnInit {
   user: UserState;
 
   constructor(
-    private auth: AppService,
+    private appService: AppService,
     private store: Store<AppState>,
     private fb: FormBuilder,
+    private router: Router
     ) { }
 
   /** 提交登录表单 */
   onSubmit() {
     if (this.form.valid) {
-      this.auth.auth(this.form.value.username).subscribe((res: MyResponse) => {
+      this.appService.auth(this.form.value.username).subscribe((res: MyResponse) => {
         if (res.success) {
           const user = res.data;
           /** 登录成功设置 user state */
           this.store.dispatch(new UserSetAction(user));
+          this.router.navigateByUrl(this.appService.getRedirectUrl(user));
         }
       });
     }

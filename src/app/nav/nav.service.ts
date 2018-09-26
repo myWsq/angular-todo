@@ -13,14 +13,6 @@ export const menuConfig: MenuItem[] = [
     text: '首页'
   },
   {
-    index: '/login',
-    text: '登录'
-  },
-  {
-    index: '/marked',
-    text: 'markdown'
-  },
-  {
     index: '/super_admin',
     text: '用户管理'
   }
